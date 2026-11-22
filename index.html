@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة كليتي التعليمية | قسم تكنولوجيا التعليم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="brand">منصة كليتي التعليمية المتكاملة 🎓</div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#doctors">الدكاترة الأساسيين</a></li>
+                <li><a href="#sections">مقررات السكاشن</a></li>
+                <li><a href="#schedule">الجداول</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" id="home">
+        
+        <!-- القسم العلوي: البانر الرئيسي + مقررات السكاشن -->
+        <div class="top-grid">
+            <div class="glass-card hero-box">
+                <h1>كل ما يخص قسم التكنولوجيا</h1>
+                <p>مكتبة قسم تكنولوجيا التعليم — اختر القسم اللي عايز تدخله</p>
+                <div class="action-buttons">
+                    <button class="btn-emerald" onclick="scrollToSection('doctors')">الدكاترة الأساسيين</button>
+                    <button class="btn-gold" onclick="scrollToSection('sections')">مقررات السكاشن</button>
+                </div>
+            </div>
+
+            <div class="glass-card" id="sections">
+                <div class="card-title">
+                    <span>مقررات السكاشن العملية 🔒</span>
+                    <span class="badge">4 مقررات</span>
+                </div>
+                <div class="sections-grid" id="sectionsGrid">
+                    <!-- يتم توليدها من script.js -->
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الدكاترة الأساسيين -->
+        <section class="glass-card doctors-section" id="doctors">
+            <div class="card-title">
+                <span>الدكاترة الأساسيين بالقسم 🔒</span>
+                <span class="badge">7 أعضاء هيئة تدريس</span>
+            </div>
+            <div class="doctors-grid" id="doctorsGrid">
+                <!-- يتم توليدها من script.js -->
+            </div>
+        </section>
+
+        <!-- القسم السفلي: جدول المحاضرات + أحدث المواد المضافة -->
+        <div class="bottom-grid" id="schedule">
+            <div class="glass-card">
+                <div class="card-title">
+                    <span>جدول محاضرات هذا الأسبوع</span>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اليوم</th>
+                                <th>المقرر / السكشن</th>
+                                <th>المحاضر</th>
+                                <th>الموعد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>الأحد</td>
+                                <td>مصادر التعلم الرقمي</td>
+                                <td>سكشن عملي</td>
+                                <td>10:00 ص</td>
+                            </tr>
+                            <tr>
+                                <td>الإثنين</td>
+                                <td>مدخل إلى تكنولوجيا التعليم</td>
+                                <td>د. زينب</td>
+                                <td>12:00 م</td>
+                            </tr>
+                            <tr>
+                                <td>الثلاثاء</td>
+                                <td>أساسيات الكاميرا الرقمية</td>
+                                <td>معمل التصوير</td>
+                                <td>09:00 ص</td>
+                            </tr>
+                            <tr>
+                                <td>الأربعاء</td>
+                                <td>مهارات التواصل</td>
+                                <td>د. محمد أبو الليل</td>
+                                <td>11:00 ص</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-title">
+                    <span>تنبيهات وإعلانات القسم</span>
+                </div>
+                <div class="file-list">
+                    <div class="file-item">
+                        <div class="file-info">
+                            <h5>نظام الحماية بكلمة مرور</h5>
+                            <span>جميع ملفات الدكاترة والسكاشن محمية بكلمة سر خاصة بكل مقرر</span>
+                        </div>
+                    </div>
+                    <div class="file-item">
+                        <div class="file-info">
+                            <h5>تحديث المحاضرات أسبوعياً</h5>
+                            <span>يتم رفع ملفات الـ PDF والتكليفات فور انتهاء المحاضرة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 1. نافذة طلب كلمة السر -->
+    <div class="modal" id="passwordModal" onclick="closeModalOnBg(event, 'passwordModal')">
+        <div class="modal-content password-box">
+            <button class="close-modal" onclick="closeModal('passwordModal')">&times;</button>
+            <div class="lock-icon">🔐</div>
+            <h2 id="passModalTitle">أدخل كلمة المرور</h2>
+            <p id="passModalSubtitle">هذا القسم محمي بكلمة سر خاصة</p>
+            
+            <input type="password" id="passwordInput" placeholder="اكتب كلمة السر هنا..." onkeypress="handleEnter(event)">
+            <p id="errorMsg" class="error-text"></p>
+            
+            <button class="btn-gold full-width" onclick="verifyPassword()">دخول القسم</button>
+        </div>
+    </div>
+
+    <!-- 2. نافذة المحتوى (تفتح بعد كتابة الباسورد الصح) -->
+    <div class="modal" id="detailsModal" onclick="closeModalOnBg(event, 'detailsModal')">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('detailsModal')">&times;</button>
+            <h2 id="modalTitle" style="color: var(--gold-light); margin-bottom: 10px;"></h2>
+            <p id="modalDesc" style="color: var(--text-muted); margin-bottom: 20px;"></p>
+            <div class="file-list">
+                <div class="file-item">
+                    <div class="file-info">
+                        <h5>مجلد المحاضرات والملخصات (PDF)</h5>
+                        <span>متاح للتحميل المباشر</span>
+                    </div>
+                    <a id="lecturesLink" href="#" target="_blank" class="download-btn">فتح 📁</a>
+                </div>
+                <div class="file-item">
+                    <div class="file-info">
+                        <h5>التكليفات والامتحانات السابقة</h5>
+                        <span>نماذج تدريبية</span>
+                    </div>
+                    <a id="assignmentsLink" href="#" target="_blank" class="download-btn">فتح 📁</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        تصميم وتنفيذ: محمد عبدالعال
+    </footer>
+
+    <!-- استدعاء ملفات الجافاسكريبت بالترتيب -->
+    <script src="password.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
