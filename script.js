@@ -21,6 +21,14 @@ const doctorsList = [
         {
             title: "محاضرة الدكتورة زينب - 25/10/2026",
             file: "books/zainab-lecture-2026-10-25.pdf"
+        },
+        {
+            title: "المراجعة النهائية الثانية - شرح - د. زينب",
+            file: "books/zainab-rev2-sharh.pdf"
+        },
+        {
+            title: "المراجعة النهائية الثانية - أسئلة وإجابات - د. زينب",
+            file: "books/zainab-rev2-questions-answers.pdf"
         }
     ]
 },
@@ -49,6 +57,14 @@ const doctorsList = [
         {
             title: "المراجعة الاولى للدكتورة محمد ابو الليل ( اسئلة واجابات )",
             file: "books/aboulleil-questions-assignments.pdf"
+        },
+        {
+            title: "المراجعة النهائية الثانية - شرح - د. محمد أبو الليل",
+            file: "books/aboulleil-rev2-sharh.pdf"
+        },
+        {
+            title: "المراجعة النهائية الثانية - أسئلة وإجابات - د. محمد أبو الليل",
+            file: "books/aboulleil-rev2-questions-answers.pdf"
         }
     ]
 },
@@ -72,7 +88,7 @@ const doctorsList = [
         }
     ]
 },
- {
+{
     id: "doc_amal",
     name: "د. أمل",
     role: "عضو هيئة تدريس - تكنولوجيا التعليم",
@@ -95,8 +111,16 @@ const doctorsList = [
             file: "books/amal-oloom-sharh.pdf"
         },
         {
-            title: " المراجعة الاولى مدخل إلى العلوم التربوية - أسئلة واجابات",
+            title: "المراجعة الاولى مدخل إلى العلوم التربوية - أسئلة واجابات",
             file: "books/amal-oloom-questions-assignments.pdf"
+        },
+        {
+            title: "المراجعة النهائية الثانية - شرح - د. أمل",
+            file: "books/amal-rev2-sharh.pdf"
+        },
+        {
+            title: "المراجعة النهائية الثانية - أسئلة وإجابات - د. أمل",
+            file: "books/amal-rev2-questions-answers.pdf"
         }
     ]
 },
